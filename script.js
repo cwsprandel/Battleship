@@ -22,7 +22,13 @@ const shipFactory = (shipName) => {
             length = 2
     }
 
-    return {shipName, length}
+    let shipHits = 0
+
+    const isHit = () => {
+        shipHits += 1
+    }
+
+    return {shipName, length, shipHits, isHit}
 }
 
 module.exports = shipFactory
