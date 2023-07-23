@@ -17,11 +17,11 @@ describe('ship Length and initial Health tests', () => {
     })
 
     test('ship hits (carrier)', () => {
-        expect(testShipCarrier.shipHits).toBe(0)
+        expect(testShipCarrier.shipHitsArray.length).toBe(0)
     })
 
     test('ship hits (sub)', () => {
-        expect(testShipSub.shipHits).toBe(0)
+        expect(testShipSub.shipHitsArray.length).toBe(0)
     })
 })
 
@@ -33,11 +33,11 @@ describe('ship hit tests', () => {
 
     test('ship hits (carrier)', () => {
         testShipCarrier.isHit()
-        expect(testShipCarrier.shipHits).toBe(1)
+        expect(testShipCarrier.shipHitsArray.length).toBe(2)
     })
 
     test('ship hits (sub)', () => {
-        expect(testShipSub.shipHits).toBe(1)
+        expect(testShipSub.shipHitsArray.length).toBe(1)
     })
 })
 

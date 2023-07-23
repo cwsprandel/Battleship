@@ -22,13 +22,13 @@ const shipFactory = (shipName) => {
             length = 2
     }
 
-    let shipHits = 0
+    const shipHitsArray = []
 
     const isHit = () => {
-        shipHits += 1
+        shipHitsArray.push("x")
     }
 
-    return {shipName, length, shipHits, isHit}
+    return {shipName, length, isHit, shipHitsArray}
 }
 
 module.exports = shipFactory
