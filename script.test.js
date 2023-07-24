@@ -1,11 +1,11 @@
-const shipFactory = require('./script')
+import {shipFactory} from '../Battleship'
 
 let testShipCarrier
 let testShipSub
 
 beforeAll(() => {
-    testShipCarrier = shipFactory('carrier')
     testShipSub = shipFactory('submarine')
+    testShipCarrier = shipFactory('carrier')
 })
 
 describe('ship Length and initial Health tests', () => {
@@ -27,17 +27,24 @@ describe('ship Length and initial Health tests', () => {
 
 describe('ship hit tests', () => {
     beforeAll(() => {
-        testShipCarrier.isHit()
-        testShipSub.isHit()
+        testShipCarrier.shipHit()
+        testShipSub.shipHit()
     })
 
     test('ship hits (carrier)', () => {
-        testShipCarrier.isHit()
+        testShipCarrier.shipHit()
         expect(testShipCarrier.shipHitsArray.length).toBe(2)
     })
 
     test('ship hits (sub)', () => {
         expect(testShipSub.shipHitsArray.length).toBe(1)
+    })
+
+    test('ship sunk (carrier)', () => {
+        testShipCarrier.shipHit()
+        testShipCarrier.shipHit()
+        testShipCarrier.shipHit()
+        expect(testShipCarrier.shipSunk).toBe(true)
     })
 })
 

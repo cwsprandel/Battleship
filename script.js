@@ -5,6 +5,7 @@
 //destroyer: 2
 
 const shipFactory = (shipName) => {
+    let length
     switch (shipName) {
         case 'carrier':
             length = 5
@@ -24,11 +25,22 @@ const shipFactory = (shipName) => {
 
     const shipHitsArray = []
 
-    const isHit = () => {
+    const shipHit = () => {
         shipHitsArray.push("x")
+        sunkCheck()
     }
 
-    return {shipName, length, isHit, shipHitsArray}
+    let shipSunk
+    const sunkCheck = () => {
+        if (shipHitsArray.length === length) {
+            shipSunk = true
+        } else {
+            shipSunk = false
+        }
+        return {shipSunk}
+    }
+
+    return {shipName, length, shipHit, shipHitsArray, shipSunk}
 }
 
-module.exports = shipFactory
+export {shipFactory}
