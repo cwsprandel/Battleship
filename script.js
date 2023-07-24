@@ -30,17 +30,17 @@ const shipFactory = (shipName) => {
         sunkCheck()
     }
 
-    let shipSunk
     const sunkCheck = () => {
+        let shipSunk = false
         if (shipHitsArray.length === length) {
             shipSunk = true
         } else {
             shipSunk = false
         }
-        return {shipSunk}
+        return (shipSunk)
     }
 
-    return {shipName, length, shipHit, shipHitsArray, shipSunk}
+    return {shipName, length, shipHit, shipHitsArray, sunkCheck}
 }
 
 export {shipFactory}

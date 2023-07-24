@@ -44,7 +44,7 @@ describe('ship hit tests', () => {
         testShipCarrier.shipHit()
         testShipCarrier.shipHit()
         testShipCarrier.shipHit()
-        expect(testShipCarrier.shipSunk).toBe(true)
+        expect(testShipCarrier.sunkCheck()).toBe(true)
     })
 })
 
